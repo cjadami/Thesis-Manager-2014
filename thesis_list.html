@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+ <script type="text/javascript" src="/stylesheets/bootstrap.js"></script>
+<link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap.css">
+	<title>List of Thesis</title>
+</head>
+<body style="margin: 100px; margin-left:100px; background-color: black">
+<div class="container">
+<div class="header">
+<ul class = "nav nav-pills pull-right" style="nav-orange">
+<li>
+	<a href="/home">Home</a>
+</li>
+<li>
+	<a href="/option1">Create New</a>
+</li>
+
+<li class=" active">
+	<a href="/option2">List</a>
+</li>
+<li class="dropdown">
+	<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span>  About Us <b class="caret"></b></a>
+	<ul class="dropdown-menu" role="menu">
+<li><a href="/module-1/1">Sharmaine Nadao</a></li>
+<li><a href="/module-1/2">Cj Adami</a></li>
+
+	</ul>
+</li>
+</ul>
+
+<h3 style="color: white"><img src="http://profile.ak.fbcdn.net/hprofile-ak-xaf1/t1.0-1/27700_121706137867319_4971892_n.jpg" width="50" height="50">&nbsp;Computer Engineering Department</h3>
+</div>
+</div>
+<br>
+<br>
+<div class="table responsive-container">
+<div style="background-color: white">
+<h1>List of All Thesis</h1>
+	<table class="table table-bordered">
+	<thead>
+		<th>Thesis Title</th>
+		<th>Description</th>
+		<th>School Year</th>
+		<th>Status</th>
+		<th>View</th>
+	</thead>
+	<tbody>
+		{% for thesis in all_thesis %}
+			<tr>
+				<td>{{thesis.thesis_title}}</td> <td>{{thesis.description}}</td> <td>{{thesis.school_year}}</td>
+				<td>{{thesis.status}}</td>
+				<td><a href="/thesis/view/{{thesis.key.id()}}" class="btn btn-default">Link</a>
+					<a href="/thesis/edit/{{thesis.key.id()}}" class="btn btn-info btn-sm" role="button">Edit</a>
+				</td>
+
+			</tr>
+		{% endfor %}
+	</tbody>
+	</table>
+
+</div>
+</div>
+</body>
+</html>

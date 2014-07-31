@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+ <script type="text/javascript" src="/stylesheets/bootstrap.js"></script>
+<link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap.css"></link>
+
+
+<title>Edit Thesis</title>
+</head>
+<body style= "background-color:black; margin:100px">
+<div class="container">
+<div class="container">
+<div class="header">
+<ul class = "nav nav-pills pull-right" style="nav-orange">
+<li>
+	<a href="/home">Home</a>
+</li>
+
+<li class="active">
+	<a href="/option1">Create New</a>
+</li>
+<li>
+	<a href="/option2">List</a>
+</li>
+<li class="dropdown">
+	<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span>  About Us <b class="caret"></b></a>
+	<ul class="dropdown-menu" role="menu">
+<li><a href="/module-1/1">Sharmaine Nadao</a></li>
+<li><a href="/module-1/2">Cj Adami</a></li>
+
+	</ul>
+</li>
+</ul>
+
+<h3 style="color:white">Computer Engineering Department</h3>
+
+<br>
+{% for thesis in all_thesis %}
+{% if (thesis.key.id() == id) %}
+<center>
+<form method="POST" action="/thesis/edit/{{thesis.key.id()}}">
+<div style="background color:#FF7D40">
+<div class="input-group input-group-lg">
+	
+	<span class = "input-group-addon">Thesis Title</span>
+		<input type="text" name="thesis_title" value="{{thesis.thesis_title}}" class="form-control" required>
+
+</div>
+<br>
+<div class="input-group input-group-lg">
+	<span class = "input-group-addon">Description</span>
+	<textarea rows="5" name="description" value="{{thesis.description}}" placeholder="{{thesis.description}}" class="form-control" required></textarea>
+
+</div>
+<br>
+<div class="input-group input-group-lg" >
+	<span class = "input-group-addon">School Year:</span>
+	<select class="form-control" required name="school_year" value="{{thesis.school_year}}">
+		<option>2013-2014</option>
+		<option>2012-1013</option>
+		<option>2011-2012</option>
+		<option>2010-2011</option>
+		<option>2009-2010</option>
+		<option>2008-2009</option>
+		<option>2007-2008</option>
+		<option>2006-2007</option>
+		<option>2005-2006</option>
+		<option>2004-2005</option>
+		<option>2003-2004</option>
+		<option>2002-2003</option>
+		<option>2001-2002</option>
+		<option>2000-2001</option>
+	</select>
+
+</div>
+<br>
+<div class="btn-lg" align="left"> 
+<h3 style="color:white;" value="{{thesis.status}}" required>Status</h3>
+<ul style="color: white">
+
+
+	<li style="color: skyblue"><input type="radio" name = "status" value = "Approved" required> Approved</li>
+	<li style="color:red"><input type="radio" name = "status" value = "Not Approved" required> Not Approved</li>
+	<li style="color:yellow"><input type="radio" name = "status" value = "Pending" required> Pending</li>
+
+</ul>
+</div>
+
+<div class="btn-lg ">
+	<input type="submit">
+</div>
+</div>
+</form>
+</center>
+</div>
+{% endif %}
+{% endfor %}
+</body>
+</html>

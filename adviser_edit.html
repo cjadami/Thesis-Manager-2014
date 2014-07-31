@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+ <script type="text/javascript" src="/stylesheets/bootstrap.js"></script>
+<link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap.css"></link>
+
+
+<title>Create Thesis Adviser</title>
+</head>
+<body style= "background-color:black; margin:100px">
+<div class="container">
+<div class="container">
+<div class="header">
+<ul class = "nav nav-pills pull-right" style="nav-orange">
+<li>
+	<a href="/home">Home</a>
+</li>
+
+<li class="active">
+	<a href="/option1">Create New</a>
+</li>
+<li>
+	<a href="/option2">List</a>
+</li>
+<li class="dropdown">
+	<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span>  About Us <b class="caret"></b></a>
+	<ul class="dropdown-menu" role="menu">
+<li><a href="/module-1/1">Sharmaine Nadao</a></li>
+<li><a href="/module-1/2">Cj Adami</a></li>
+
+	</ul>
+</li>
+</ul>
+
+<h3 style="color:white">Computer Engineering Department</h3>
+
+<br>
+
+{% for adviser in all_adviser %}
+{% if (adviser.key.id() == id) %}
+<center>
+<form method="POST" action="/adviser/edit/{{adviser.key.id()}}">
+<div style="background color:#FF7D40">
+<div class="container">
+<div class="input-group input-group-lg">
+	
+	<span class = "input-group-addon">Title</span>
+		<select class="form-control" required name="{{adviser.title1}}" name="title1" size="300">
+			<option> Mr.</option>
+			<option> Mrs.</option>
+			<option> Ms.</option>
+			<option> Dr.</option>
+			<option> Engr.</option>
+			<option> Atty.</option>
+		</select>
+		
+</div>
+</div>
+<br>
+<div class="container">
+<div class = "input-group input-group-lg">
+<span class = "input-group-addon">First Name</span>
+		<input type="text" value="{{adviser.firstname}}" name="f_name" class="form-control" required size="300">
+			<span class = "input-group-addon">Last Name</span>
+		<input type="text" name="l_name" value="{{adviser.lastname}}" class="form-control" size="300" required>
+</div>
+</div>
+<br>
+<div class="input-group input-group-lg container" >
+	<span class = "input-group-addon">Email</span>
+	<input type="text" name="email" value="{{adviser.email}}" class="form-control" required size="300" required>
+	<span class = "input-group-addon">Phone Number</span>
+	<input type="text" name="p_number" value="{{adviser.phonenumber}}" class="form-control" required size="300" required>
+</div>
+<br>
+<div class="container">
+<div class="input-group input-group-lg">
+	
+	<span class = "input-group-addon">Department</span>
+		<select class="form-control" required name="department" value="{{adviser.department}}" size="300">
+			<option value="CpE"> Computer Engineering Department (CpE)</option>
+			<option value="CE"> Civil Engineering Department (CE)</option>
+			<option value="EE"> Electrical Engineering Department (EE)</option>
+			<option value="ECE">  Electronics and Communications Engineering Department (ECE)</option>
+			<option value="ME">  Mechanical Engineering Department (ME)</option>
+			<option value="IE">  Industrial Engineering Department (IE)</option>
+			<option value="Others"> Others</option>
+		</select>
+		
+</div>
+<br>
+<div class="container btn-lg" align="left">
+	<input type="submit">
+</div>
+</form>
+</center>
+</div>
+{% endif %}
+{% endfor %}
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table, th, td, tr{
+border:4px solid white;
+border-spacing: 5px;
+background-color: gray;
+border-radius: 20px;
+opacity: 0.8;
+font-size: 14px;
+font-family: calibri;
+width: 600px;
+}
+img{
+	border: 4px solid;
+	border-radius: 8px;
+	position: relative;
+}
+
+</style>
+<title>Personal Webpage</title>
+</head>
+<body background = "http://fc04.deviantart.net/fs71/f/2011/293/0/1/dark_textured_background_6_by_dianascreations-d4dgfhb.jpg" align = "middle" style = "color: white; font size: 12px; font-family: Calibri; opacity = 0.5">
+<img src = "https://fbcdn-sphotos-g-a.akamaihd.net/hphotos-ak-xpa1/t31.0-8/q86/s720x720/10358950_818516351493842_156895053390321292_o.jpg" width = "200" height="250" position = "relative">
+<h1><i><b>Sharmaine S. Nadao (Mameng)</b></i></h1>
+Age: 19 years old
+<br>
+Birthday: October 5, 1994
+<br>
+<br>
+<center>
+<table>
+	<tr style="border: solid; border-color: white">
+	<td colspan= "1px"><p align = "middle" style ="font-size = 9px; font-family: Times New Roman; font-color: white;"><i>"When everyone is sitting, STAND UP.<br>When everyone is standing, STAND OUT. <br> When everyone is standing out, BE THEIR STANDARD."</i></p></td>
+	</tr>
+</table>
+<br>
+<table cellspacing="10px" cellpadding="0px" colspan = "1">
+	<tr>
+	<td cellpadding = "500" width="450px"><br>
+	<b>&nbsp;ABOUT ME:</b>
+	<br>
+	<br>
+	&nbsp;"GOOD DAY! I am a 5th year Computer Engineering student in the Polytechnic University of the Philippines. I am good in troubleshooting computer problems particularly in hardware. And also knowledgeable in programming languages like Java, CSS, HTML and a little Assemby Language. Creativity, patience, critical thinking and learns fast are some of my other characteristics."<br></td>
+	<td>
+	<br>
+	&nbsp;Contact Details:
+	<br>
+	<br>
+	&nbsp;<img src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5Cs9ww5OJdO5megpTgjZDCmdj2cbDSdZbgB8jryWOIpVQQYiKhQ" width = "40px" height="35px">
+	<br>
+	&nbsp;247 Villa Gutierrez St. Sangandaan, Caloocan City
+	<br>
+	&nbsp;<img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTm4D_kBn4yCE7QCH7bXYmKqAMzl2YwYTQUzYhkKNZquexsclxsIHnXLM0" width = "40px" height="35px">
+	<br>
+	&nbsp;09359641521/09089926588
+	<br>
+	&nbsp;<img src="http://media.indiedb.com/images/articles/1/161/160404/auto/eMailLogo.png" width = "40px" height="35px">
+	<br>
+	&nbsp;sharmaine.nadao@gmail.com
+	<br>
+	<br>
+	</td>
+	</tr>
+</table>
+<br>
+<table>
+	<tr>
+	<th><h3>SOCIAL LINKS</h3></th>
+</table>
+<br>
+<a href="https://www.facebook.com/sharmaine.nadao"><img src="http://www.adverblog.com/wp-content/uploads/2012/12/fb_logo_small-300x201.jpg" width = "40px" height="35px"></a>
+&nbsp;
+<a href="https://twitter.com/AkoSiMengchii"><img src="http://rack.0.mshcdn.com/media/ZgkyMDEyLzEyLzA0LzAyL3doeWlzdHdpdHRlLmNlOS5qcGcKcAl0aHVtYgkxMjAweDYyNyMKZQlqcGc/54b27df9/4c7/why-is-twitter-s-logo-named-after-larry-bird--b8d70319da.jpg" width = "40px" height="35px"></a>
+&nbsp;
+<a href="https://profile.yahoo.com/KBYPZU3ECA6YROOOSKA3CFGVYQ/"><img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcS9emCL8uBFGm1c-Z1q3DAOfKz4t_jzyTI9mTWKhxneL6dziS-l" width = "40px" height="35px"></a>
+&nbsp;
+<a href="https://plus.google.com/u/0/"><img src="http://cdn.thedroidguy.com/wp-content/uploads/2013/09/gmail-logo.png?617318" width = "40px" height="35px"></a>
+&nbsp;
+<br>
+<table>
+	<tr>
+	<th><h3>Sign my Guestbook! :)</h3></th>	
+	</tr>
+</table>
+
+</center>
+</body>
+</html>
+ {% for greeting in greetings %}
+      {% if greeting.author %}
+        <b>{{ greeting.author.nickname() }}</b> wrote:
+      {% else %}
+       An anonymous person wrote:
+      {% endif %}
+      <blockquote>{{ greeting.content }}</blockquote>
+    {% endfor %}
+
+    <form action="/sign1?guestbook_name={{ guestbook_name }}" method="post">
+      <div><textarea name="content" rows="3" cols="60"></textarea></div>
+      <div><input type="submit" value="Sign Guestbook"></div>
+    </form>
+
+    <hr>
+
+    <form>Guestbook name:
+      <input value="{{ guestbook_name }}" name="guestbook_name">
+      <input type="submit" value="switch">
+    </form>
+
+    <a href="{{ url|safe }}">{{ url_linktext }}</a>
+      </body>
+</html>
