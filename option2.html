@@ -8,6 +8,7 @@
 
 <title>View Lists</title>
 </head>
+{% if user_name %}
 <body style= "background-color:black;">
 <div class="container">
 <div class="header">
@@ -52,5 +53,47 @@
 
 
 </div>
+{% else %}
+<div class="container">
+<div class="header">
+<ul class = "nav nav-pills pull-right" style="nav-orange">
+<li class=" active">
+	<a href="/home">Home</a>
+</li>
+
+<li>
+	<a href="/option2">List</a>
+</li>
+<li class="dropdown">
+	<a href="#" class="dropdown-toggle" data toggle= "dropdown"><span class=" glyphicon glyphicon-user"></span>About Us<b class="caret"></b></a>
+
+	<ul class="dropdown-menu" role = "menu">
+		
+<li><a href="/module-1/1">Sharmaine Nadao</a></li>
+<li><a href="/module-1/2">Cj Adami</a></li>
+
+	</ul>
+</li>
+
+</ul>
+
+<h3 style="color: white"><img src="http://profile.ak.fbcdn.net/hprofile-ak-xaf1/t1.0-1/27700_121706137867319_4971892_n.jpg" width="50" height="50">&nbsp;Computer Engineering Department</h3>
+</div>
+</div>
+<div class="jumbotron" style="background-color:#FF7D40">
+	<h1>Welcome Computer Engineering Students!</h1>
+
+	<p class="lead">
+	Please log in first.
+	<br>
+	<br>
+
+<a class="btn btn-lg btn-default" href="{{ url|safe }}" role = "button">{{ url_linktext }}</a> 
+	
+	</p>
+
+
+</div>
+{% endif %}
 </body>
 </html>
